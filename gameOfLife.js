@@ -3,13 +3,21 @@ import Cell from "./JS/cell.js";
 
 const container = document.querySelector(".game-container__cell");
 
+const size = {
+  small: "20px",
+  medium: "40px",
+  large: "60px",
+};
+
+console.log(size.large);
+
 const playGame = (numberOfCells) => {
   let cellWorld = new CellWorld(numberOfCells);
   setContainerGrid(numberOfCells);
   let state = checkNeighbors(cellWorld.cells, numberOfCells);
   const myInterval = setInterval(() => {
     state = nextPrint(state, numberOfCells);
-  }, 150);
+  }, 100);
 
   buttonNext.addEventListener("click", () => {
     clearInterval(myInterval);
@@ -61,6 +69,9 @@ const checkNeighbors = (cell, numberOfCells) => {
   for (let x = 1; x <= cell.length - 2; x++) {
     for (let y = 1; y <= cell.length - 2; y++) {
       let neighbors = 0;
+
+      // if (neighbors < 4) {
+      // }
 
       if (cell[x - 1][y - 1] === 1) {
         neighbors++;
@@ -120,5 +131,5 @@ const button = document.querySelector(".game-container__button");
 const buttonNext = document.querySelector(".next-step-button");
 
 button.addEventListener("click", () => {
-  playGame(30);
+  playGame(40);
 });
