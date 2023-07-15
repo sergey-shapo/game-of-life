@@ -1,9 +1,9 @@
-const container = document.querySelector(".game-container__cell");
+import selectors from "./querySelectors.js";
 
 class Cell {
-  constructor(isDead = false, isCornerCase) {
+  constructor(isDead = false, cellColor = "black") {
     this.isDead = isDead;
-    this.isCornerCase = isCornerCase;
+    this.cellColor = cellColor;
     this.setCell(isDead);
   }
 
@@ -13,12 +13,11 @@ class Cell {
 
     if (isDead === null) {
       cellElement.style.border = "none";
-      cellElement.style.backgroundColor = "blue";
-    } else
-      isDead === true
-        ? (cellElement.style.backgroundColor = "white")
-        : (cellElement.style.backgroundColor = "blue");
-    container.appendChild(cellElement);
+      cellElement.style.backgroundColor = this.cellColor;
+    } else if (isDead === false) {
+      cellElement.style.backgroundColor = this.cellColor;
+    }
+    selectors.container.appendChild(cellElement);
   }
 }
 

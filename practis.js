@@ -1,8 +1,13 @@
-function foo() {
-  // console.log(name);
-  console.log(age);
-  // var name = "Lydia";
-  let age = 21;
-}
+const getRandomDarkColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
 
-foo();
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    const randomChar = letters.charAt(randomIndex);
+
+    color += randomChar;
+  }
+
+  return color;
+};
