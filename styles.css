@@ -38,6 +38,10 @@ body {
   border: 2px solid var(--dark);
 }
 
+header span {
+  font-weight: 400;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -60,6 +64,10 @@ button {
   font-weight: 400;
   font-family: inherit;
   width: 100px;
+}
+
+.next-step-button {
+  display: none;
 }
 
 .header,
