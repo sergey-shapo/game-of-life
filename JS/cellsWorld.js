@@ -1,10 +1,16 @@
-import Cell from "./cell.js";
+import selectors from "./querySelectors.js";
 
 class CellWorld {
   constructor(numberCellsPerAxis) {
     this.numberCellsPerAxis = numberCellsPerAxis;
     this.cells = this.setCell(numberCellsPerAxis);
+    this.grid = this.setContainerGrid(numberCellsPerAxis);
   }
+
+  setContainerGrid(numberCellsPerAxis) {
+    selectors.container.style.gridTemplateColumns = `repeat(${numberCellsPerAxis}, 1fr)`;
+  }
+
   setCell(numberCellsPerAxis) {
     const cell = Array(numberCellsPerAxis)
       .fill()
@@ -19,14 +25,13 @@ class CellWorld {
           y === cell.length - 1
         ) {
           cell[x][y] = 2;
-          new Cell(true);
         } else {
           const randomNumber = Math.floor(Math.random() * 2);
           cell[x][y] = randomNumber;
-          randomNumber === 0 ? new Cell(true) : new Cell(false);
         }
       }
     }
+
     return cell;
   }
 }
