@@ -14,7 +14,7 @@ const playGame = (numberOfCells) => {
 
   const stateUpdateInterval = setInterval(() => {
     state = nextPrint(state, numberOfCells);
-  }, 0);
+  }, 150);
 
   selectors.stopButton.addEventListener("click", () => {
     clearInterval(stateUpdateInterval);
