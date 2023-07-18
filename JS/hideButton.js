@@ -4,6 +4,7 @@ const hideButton = (buttonText) => {
   if (buttonText === "start") {
     selectors.startButton.style.display = "none";
     selectors.stopButton.style.display = "block";
+    selectors.rangeArea.style.display = "flex";
   }
 
   if (buttonText === "stop") {
