@@ -7,13 +7,14 @@ import hideButton from "./JS/hideButton.js";
 export let color;
 let speed = selectors.rangeInput.value;
 let isInTheGame = false;
+let stateUpdateInterval;
 
 const playGame = (numberOfCells) => {
   hideButton("start");
   const cellWorld = new CellWorld(numberOfCells);
   let state = nextPrint(cellWorld.cells, numberOfCells);
 
-  let stateUpdateInterval = setInterval(() => {
+  stateUpdateInterval = setInterval(() => {
     state = nextPrint(state, numberOfCells);
   }, speed);
 
@@ -31,10 +32,6 @@ const playGame = (numberOfCells) => {
 
   selectors.stopButton.addEventListener("click", () => {
     clearInterval(stateUpdateInterval);
-    stateUpdateInterval = null;
-    // speed = null;
-    // state = null
-    console.log(stateUpdateInterval);
     hideButton("stop");
     isInTheGame = false;
   });
