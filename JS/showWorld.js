@@ -2,6 +2,8 @@ import Cell from "./cell.js";
 import { color } from "../gameOfLife.js";
 
 const showWorld = (array) => {
+  let counter = 0;
+
   for (let x = 0; x < array.length; x++) {
     for (let y = 0; y < array.length; y++) {
       if (
@@ -14,6 +16,7 @@ const showWorld = (array) => {
         new Cell(null, color);
       } else array[x][y] === 0 ? new Cell(true) : new Cell(false, color);
     }
+    counter++;
   }
 };
 

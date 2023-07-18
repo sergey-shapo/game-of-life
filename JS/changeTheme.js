@@ -18,6 +18,8 @@ const changeTheme = () => {
 
   selectors.footer.style.border = `2px solid ${color}`;
   selectors.header.style.border = `2px solid ${color}`;
+  selectors.rangeArea.style.border = `2px solid ${color}`;
+  selectors.thumb.style.backgroundColor = color;
   selectors.svg.style.fill = color;
   selectors.buttons.forEach(
     (button) => (button.style.border = `2px solid ${color}`)
