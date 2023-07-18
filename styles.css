@@ -64,7 +64,7 @@ button,
   font-size: larger;
   font-weight: 400;
   font-family: inherit;
-  width: 100px;
+  width: 150px;
 }
 
 .range-area {
@@ -92,10 +92,9 @@ button,
 .game-container {
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
 }
 
 .game-container__cell {
@@ -126,7 +125,7 @@ path {
   fill: black;
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 580px) {
   .game-container__buttons {
     flex-direction: column;
   }

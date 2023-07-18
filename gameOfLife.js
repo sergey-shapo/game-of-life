@@ -11,6 +11,7 @@ let stateUpdateInterval;
 
 const playGame = (numberOfCells) => {
   hideButton("start");
+
   const cellWorld = new CellWorld(numberOfCells);
   let state = nextPrint(cellWorld.cells, numberOfCells);
 
@@ -31,6 +32,7 @@ const playGame = (numberOfCells) => {
   });
 
   selectors.stopButton.addEventListener("click", () => {
+    selectors.startButton.textContent = "Play again";
     clearInterval(stateUpdateInterval);
     hideButton("stop");
     isInTheGame = false;
