@@ -36,11 +36,15 @@ const playGame = (numberOfCells) => {
     clearInterval(stateUpdateInterval);
     hideButton("stop");
     isInTheGame = false;
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+      cell.remove();
+    });
   });
 };
 
 selectors.startButton.addEventListener("click", () => {
-  playGame(40);
+  playGame(50);
   isInTheGame = true;
 });
 
