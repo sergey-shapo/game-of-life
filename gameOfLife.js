@@ -32,9 +32,9 @@ const playGame = (numberOfCells) => {
   });
 
   selectors.stopButton.addEventListener("click", () => {
+    hideButton("stop");
     selectors.startButton.textContent = "Play again";
     clearInterval(stateUpdateInterval);
-    hideButton("stop");
     isInTheGame = false;
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell) => {
@@ -44,10 +44,18 @@ const playGame = (numberOfCells) => {
 };
 
 selectors.startButton.addEventListener("click", () => {
-  playGame(50);
+  playGame(40);
   isInTheGame = true;
 });
 
 selectors.changeThemeButton.addEventListener("click", () => {
   color = changeTheme();
+});
+
+selectors.infoButton.addEventListener("click", () => {
+  selectors.gameInfo.classList.remove("hidden");
+});
+
+selectors.closeInfoButton.addEventListener("click", () => {
+  selectors.gameInfo.classList.add("hidden");
 });
