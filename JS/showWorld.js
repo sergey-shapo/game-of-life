@@ -1,5 +1,5 @@
 import Cell from "./cell.js";
-import { color } from "../gameOfLife.js";
+import { color } from "../game.js";
 
 const showWorld = (array) => {
   const cellColor = color ? color : "#180156";

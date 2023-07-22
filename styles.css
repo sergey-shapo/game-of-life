@@ -166,6 +166,10 @@ section {
   height: 20px;
 }
 
+.game-container__info p:nth-child(2) {
+  margin: 0 16px 16px 0;
+}
+
 path {
   width: 20px;
   height: 20px;

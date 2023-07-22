@@ -1,6 +1,6 @@
 import selectors from "./querySelectors.js";
 import Cell from "./cell.js";
-import { color } from "../gameOfLife.js";
+import { color } from "../game.js";
 
 class CellWorld {
   constructor(numberCellsPerAxis) {

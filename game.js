@@ -12,7 +12,7 @@ let stateUpdateInterval;
 const playGame = (numberOfCells) => {
   hideButton("start");
 
-  const cellWorld = new CellWorld(numberOfCells);
+  let cellWorld = new CellWorld(numberOfCells);
   let state = nextPrint(cellWorld.cells, numberOfCells);
 
   stateUpdateInterval = setInterval(() => {
