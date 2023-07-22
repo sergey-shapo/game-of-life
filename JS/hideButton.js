@@ -2,14 +2,13 @@ import selectors from "./querySelectors.js";
 
 const hideButton = (buttonText) => {
   if (buttonText === "start") {
-    selectors.startButton.style.display = "none";
+    selectors.startButton.classList.add("hidden");
     selectors.stopButton.style.display = "block";
     selectors.rangeArea.style.display = "flex";
-  }
-
-  if (buttonText === "stop") {
+    selectors.changeThemeButton.classList.remove("hidden");
+  } else if (buttonText === "stop") {
+    selectors.startButton.classList.remove("hidden");
     selectors.stopButton.style.display = "none";
-    selectors.startButton.style.display = "block";
   }
 };
 

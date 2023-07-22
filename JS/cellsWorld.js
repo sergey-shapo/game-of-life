@@ -1,4 +1,6 @@
 import selectors from "./querySelectors.js";
+import Cell from "./cell.js";
+import { color } from "../game.js";
 
 class CellWorld {
   constructor(numberCellsPerAxis) {
@@ -25,9 +27,11 @@ class CellWorld {
           y === numberCellsPerAxis - 1
         ) {
           cell[x][y] = 2;
+          new Cell(null, color);
         } else {
           const randomNumber = Math.floor(Math.random() * 2);
           cell[x][y] = randomNumber;
+          randomNumber === 0 ? new Cell(true) : new Cell(false, color);
         }
       }
     }

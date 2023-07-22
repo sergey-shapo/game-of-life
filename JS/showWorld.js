@@ -1,8 +1,10 @@
 import Cell from "./cell.js";
-import { color } from "../gameOfLife.js";
+import { color } from "../game.js";
 
 const showWorld = (array) => {
+  const cellColor = color ? color : "#180156";
   let counter = 0;
+  const cells = document.querySelectorAll(".cell");
 
   for (let x = 0; x < array.length; x++) {
     for (let y = 0; y < array.length; y++) {
@@ -13,10 +15,15 @@ const showWorld = (array) => {
         y === array.length - 1
       ) {
         array[x][y] = 2;
-        new Cell(null, color);
-      } else array[x][y] === 0 ? new Cell(true) : new Cell(false, color);
+        cells[counter].style.backgroundColor = cellColor;
+        counter++;
+      } else {
+        array[x][y] === 0
+          ? (cells[counter].style.backgroundColor = "white")
+          : (cells[counter].style.backgroundColor = cellColor);
+        counter++;
+      }
     }
-    counter++;
   }
 };
 

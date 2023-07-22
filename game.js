@@ -11,7 +11,8 @@ let stateUpdateInterval;
 
 const playGame = (numberOfCells) => {
   hideButton("start");
-  const cellWorld = new CellWorld(numberOfCells);
+
+  let cellWorld = new CellWorld(numberOfCells);
   let state = nextPrint(cellWorld.cells, numberOfCells);
 
   stateUpdateInterval = setInterval(() => {
@@ -31,9 +32,14 @@ const playGame = (numberOfCells) => {
   });
 
   selectors.stopButton.addEventListener("click", () => {
-    clearInterval(stateUpdateInterval);
     hideButton("stop");
+    selectors.startButton.textContent = "Play again";
+    clearInterval(stateUpdateInterval);
     isInTheGame = false;
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+      cell.remove();
+    });
   });
 };
 
@@ -44,4 +50,12 @@ selectors.startButton.addEventListener("click", () => {
 
 selectors.changeThemeButton.addEventListener("click", () => {
   color = changeTheme();
+});
+
+selectors.infoButton.addEventListener("click", () => {
+  selectors.gameInfo.classList.remove("hidden");
+});
+
+selectors.closeInfoButton.addEventListener("click", () => {
+  selectors.gameInfo.classList.add("hidden");
 });

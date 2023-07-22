@@ -12,7 +12,7 @@
   </style>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
-  <script src="gameOfLife.js" type="module" defer></script>
+  <script src="game.js" type="module"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -24,6 +24,44 @@
     </header>
 
     <main class="game-container">
+      <div class="game-container__info hidden">
+        <h1>GAME OF LIFE</h1>
+        <section>
+          <div class="image-container">
+            <img src="/img/14Conway1-mediumSquareAt3X-v2.avif" alt="" width="300" height="300">
+            <span>John Horton Conway in his office at Princeton University in 1993.</span>
+          </div>
+          <p>The Game of Life, also known simply as Life, is a cellular automaton devised by British mathematician
+            John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its
+            initial
+            state and does not require any further input. Despite its simplicity, the Game of Life exhibits complex and
+            fascinating patterns.</p>
+          <p>The Game of Life is played on a two-dimensional grid of square cells, where each cell can be in one of two
+            states: alive (often represented by a filled cell) or dead (often represented by an empty cell). The game
+            follows the following rules:</p>
+          <p>Birth: A dead cell with exactly three live neighbors becomes alive in the next generation.
+            <br>Survival: A live cell with two or three live neighbors survives to the next generation.
+            <br> Death: A live cell with fewer than two live neighbors dies due to underpopulation, or with more than
+            three
+            live neighbors dies due to overpopulation.
+            <br>Stasis: A dead or alive cell with two live neighbors remains unchanged in the next generation.
+          </p>
+          <p>To simulate the game, the initial pattern is set up, and then the cells evolve over generations based on
+            the
+            rules. The patterns that emerge can vary widely, from simple static structures to moving, oscillating, and
+            self-replicating patterns.</p>
+          <p>The Game of Life has been of interest to mathematicians, computer scientists, and enthusiasts alike due to
+            its
+            emergence of intricate patterns and its connections to various mathematical concepts, such as cellular
+            automata, fractals, and complexity theory.</p>
+          <p>Since it is a zero-player game, one can only set up the initial configuration and then watch the evolution
+            of the cells.
+            Numerous software implementations and coding projects have been developed to visualize and study Life
+            patterns over
+            time.</p>
+        </section>
+        <button class="close-info-btn">Close</button>
+      </div>
       <div class="game-container__cell">
       </div>
       <div class="game-container__buttons">
@@ -33,9 +71,9 @@
           <label for="speed">Speed</label>
           <input type="range" id="speed" name="speed" min="100" max="1000" step="5">
         </div>
-        <button class="change-theme-button">Theme</button>
+        <button class="info-btn">Info</button>
+        <button class="change-theme-button hidden">Theme</button>
       </div>
-
     </main>
     <footer class="footer"><span>Made with </span>
       <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
