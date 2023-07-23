@@ -135,11 +135,10 @@ img {
 .image-container {
   position: sticky;
   float: right;
-  margin-left: 20px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 400px;
+  padding: 0 0 20px 20px;
 }
 
 .image-container span {
@@ -189,11 +188,16 @@ path {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+  }
+
+  .image-container {
+    padding: 20px 0;
   }
 }
 
