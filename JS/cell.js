@@ -1,6 +1,6 @@
 import selectors from "./querySelectors.js";
 class Cell {
-  constructor(isDead = false, cellColor = "#044548") {
+  constructor(isDead = false, cellColor = "#000000") {
     this.isDead = isDead;
     this.cellColor = cellColor;
     this.setCell(isDead);
