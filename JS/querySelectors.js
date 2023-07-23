@@ -13,6 +13,7 @@ const selectors = {
   thumb: document.querySelector('input[type="range"]'),
   rangeArea: document.querySelector(".range-area"),
   gameInfo: document.querySelector(".game-container__info"),
+  click: document.querySelector(".click"),
 };
 
 export default selectors;

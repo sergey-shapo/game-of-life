@@ -2,7 +2,7 @@ import Cell from "./cell.js";
 import { color } from "../game.js";
 
 const showWorld = (array) => {
-  const cellColor = color ? color : "#180156";
+  const cellColor = color ? color : "#000000";
   let counter = 0;
   const cells = document.querySelectorAll(".cell");
 

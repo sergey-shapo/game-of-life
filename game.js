@@ -3,16 +3,27 @@ import changeTheme from "./JS/changeTheme.js";
 import selectors from "./JS/querySelectors.js";
 import nextPrint from "./JS/nextPrint.js";
 import hideButton from "./JS/hideButton.js";
+import showWorld from "./JS/showWorld.js";
 
 export let color;
 let speed = selectors.rangeInput.value;
-let isInTheGame = false;
 let stateUpdateInterval;
+let cellWorld = new CellWorld(40);
+let isFirstPlay = true;
 
 const playGame = (numberOfCells) => {
+  let isGameStopped = false;
   hideButton("start");
 
-  let cellWorld = new CellWorld(numberOfCells);
+  if (!isFirstPlay) {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+      cell.remove();
+    });
+    cellWorld = new CellWorld(40);
+  }
+  showWorld(cellWorld.cells);
+
   let state = nextPrint(cellWorld.cells, numberOfCells);
 
   stateUpdateInterval = setInterval(() => {
@@ -24,7 +35,8 @@ const playGame = (numberOfCells) => {
     speed = selectors.rangeInput.value;
     speed = selectors.rangeInput.max - speed + 50;
 
-    if (isInTheGame) {
+    if (!isGameStopped) {
+      console.log(777);
       stateUpdateInterval = setInterval(() => {
         state = nextPrint(state, numberOfCells);
       }, speed);
@@ -32,20 +44,16 @@ const playGame = (numberOfCells) => {
   });
 
   selectors.stopButton.addEventListener("click", () => {
+    isFirstPlay = false;
+    isGameStopped = true;
     hideButton("stop");
     selectors.startButton.textContent = "Play again";
     clearInterval(stateUpdateInterval);
-    isInTheGame = false;
-    const cells = document.querySelectorAll(".cell");
-    cells.forEach((cell) => {
-      cell.remove();
-    });
   });
 };
 
 selectors.startButton.addEventListener("click", () => {
   playGame(40);
-  isInTheGame = true;
 });
 
 selectors.changeThemeButton.addEventListener("click", () => {

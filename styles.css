@@ -1,7 +1,6 @@
 :root {
   --light: #ffffff;
   --dark: #000000;
-  --primary: #180156;
 }
 
 * {
@@ -39,8 +38,10 @@ body {
   border: 2px solid var(--dark);
 }
 
-header span {
+header a {
   font-weight: 400;
+  text-decoration: none;
+  color: var(--dark);
 }
 
 .main-container {
@@ -73,7 +74,6 @@ button,
   justify-content: center;
   gap: 20px;
   width: 200px;
-  display: none;
 }
 
 .next-step-button {
@@ -81,12 +81,16 @@ button,
 }
 
 .header,
-.footer span {
+.footer span,
+a {
   padding: 10px;
 }
 
-.footer span {
+.footer a,
+span {
   font-size: 1rem;
+  color: var(--dark);
+  text-decoration: none;
 }
 
 .game-container {
@@ -105,7 +109,7 @@ button,
 .cell {
   height: 11px;
   width: 11px;
-  border: 1px solid #00000085;
+  border: 1px solid var(--dark);
 }
 
 .game-container__info {
@@ -135,11 +139,10 @@ img {
 .image-container {
   position: sticky;
   float: right;
-  margin-left: 20px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 400px;
+  padding: 0 0 20px 20px;
 }
 
 .image-container span {
@@ -189,11 +192,16 @@ path {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+  }
+
+  .image-container {
+    padding: 20px 0;
   }
 }
 

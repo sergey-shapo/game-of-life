@@ -3,17 +3,19 @@ import Cell from "./cell.js";
 import { color } from "../game.js";
 
 class CellWorld {
-  constructor(numberCellsPerAxis) {
+  constructor(numberCellsPerAxis, isEmpty = false) {
     this.numberCellsPerAxis = numberCellsPerAxis;
-    this.cells = this.setCell(numberCellsPerAxis);
+    this.cells = this.setCell(numberCellsPerAxis, isEmpty);
+    this.isEmpty = isEmpty;
     this.setContainerGrid(numberCellsPerAxis);
+    this.change = 4;
   }
 
   setContainerGrid(numberCellsPerAxis) {
     selectors.container.style.gridTemplateColumns = `repeat(${numberCellsPerAxis}, 1fr)`;
   }
 
-  setCell(numberCellsPerAxis) {
+  setCell(numberCellsPerAxis, isEmpty) {
     const cell = Array.from({ length: numberCellsPerAxis }, () =>
       Array(numberCellsPerAxis)
     );
@@ -29,9 +31,13 @@ class CellWorld {
           cell[x][y] = 2;
           new Cell(null, color);
         } else {
-          const randomNumber = Math.floor(Math.random() * 2);
-          cell[x][y] = randomNumber;
-          randomNumber === 0 ? new Cell(true) : new Cell(false, color);
+          let cellValue;
+          isEmpty
+            ? (cellValue = 0)
+            : (cellValue = Math.floor(Math.random() * 2));
+
+          cell[x][y] = cellValue;
+          cellValue === 0 ? new Cell(true) : new Cell(false, color);
         }
       }
     }

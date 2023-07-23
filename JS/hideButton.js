@@ -4,8 +4,6 @@ const hideButton = (buttonText) => {
   if (buttonText === "start") {
     selectors.startButton.classList.add("hidden");
     selectors.stopButton.style.display = "block";
-    selectors.rangeArea.style.display = "flex";
-    selectors.changeThemeButton.classList.remove("hidden");
   } else if (buttonText === "stop") {
     selectors.startButton.classList.remove("hidden");
     selectors.stopButton.style.display = "none";
