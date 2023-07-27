@@ -16,8 +16,8 @@ const getRandomDarkColor = () => {
 const changeTheme = () => {
   const color = getRandomDarkColor();
 
-  selectors.footer.style.border = `2px solid ${color}`;
-  selectors.header.style.border = `2px solid ${color}`;
+  selectors.footer.style.borderTop = `1px solid ${color}`;
+  selectors.header.style.borderBottom = `1px solid ${color}`;
   selectors.rangeArea.style.border = `2px solid ${color}`;
   selectors.thumb.style.backgroundColor = color;
   selectors.svg.style.fill = color;

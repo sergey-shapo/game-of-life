@@ -35,7 +35,14 @@ body {
   justify-content: center;
   text-align: center;
   font-weight: 500;
-  border: 2px solid var(--dark);
+}
+
+header {
+  border-bottom: 1px solid var(--dark);
+}
+
+footer {
+  border-top: 1px solid var(--dark);
 }
 
 header a {
